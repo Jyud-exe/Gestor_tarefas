@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add tarefa</title>
+</head>
+<body>
+   <div class="container">
+            <h2>ATUALIZAR TAREFAS</h2>
+        <HR></HR>
+        <div style="text-align: end;"><a style="text-align: end;" href="{{ url_for('home') }}"><button>voltar</button></a></div>
+        <form action="/editar/{{ tarefa.id }}" method="POST">
+            <label for="titulo">Tarefa:</label>
+            <input type="text" name="titulo" value="{{ tarefa.tarefa }}" required>
+
+            <label for="horario">Horário:</label>
+            <input type="text" name="horario" value="{{ tarefa.time }}" required>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>

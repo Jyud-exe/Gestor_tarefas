@@ -1,5 +1,5 @@
 from mod import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from mod.forms import TarefasForm
 from mod.models import Tarefas
 from mod import db
@@ -24,3 +24,13 @@ def delete(id):
         db.session.delete(tarefa)
         db.session.commit()
     return redirect(url_for('home'))
+
+@app.route('/editar/<int:id>', methods=['GET', 'POST'])
+def editar(id):
+    tarefa = Tarefas.query.get_or_404(id)
+    if request.method == 'POST':
+        tarefa.titulo = request.form['titulo']
+        tarefa.horario = request.form['horario']
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('editar.html', tarefa=tarefa)

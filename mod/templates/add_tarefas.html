@@ -14,7 +14,9 @@
         <form action="" method="post">
             {{ form.hidden_tag() }}
                 {{ form.data() }}
+                <label for="horario">Horário:</label>
                 {{ form.time() }}
+                <label for="titulo">Tarefa:</label>
                 {{ form.tarefa() }}
                 {{ form.btn() }}
         </form>

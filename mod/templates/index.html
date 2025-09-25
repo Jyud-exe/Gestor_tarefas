@@ -31,7 +31,7 @@
                     <li style="display: flex; align-items: center; justify-content: space-between;">
                         <span>{{ tarefa.time }} - <b>{{ tarefa.tarefa }}</b></span>
                         <span>
-                            <button>Editar</button>
+                            <a href="{{ url_for('editar', id=tarefa.id)}}">Editar</a>
                             <a href="{{ url_for('delete', id=tarefa.id) }}">Deletar</a>
                         </span>
                     </li>
