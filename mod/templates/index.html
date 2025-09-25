@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc Tarefas</title>
+    <style>
+        .center{
+            text-align: center;
+        }
+        .border{
+            border: solid rgb(0, 0, 0);
+            height: 25px;
+            width: 300px;
+        }
+        .end{
+            text-align: end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2><I>GESTOR DE TAREFAS</I></h2>
+            <HR></HR>
+            <div class="end"><a href="{{ url_for('add_tarefa')}}"><button>Adicionar</button></a></div>
+            <br><br>
+            <ul>
+                <form action="/" method="get">
+                    {% for tarefa in lista %}
+                    <li style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>{{ tarefa.time }} - <b>{{ tarefa.tarefa }}</b></span>
+                        <span>
+                            <button>Editar</button>
+                            <a href="{{ url_for('delete', id=tarefa.id) }}">Deletar</a>
+                        </span>
+                    </li>
+                    <hr>
+                    {% endfor %}
+                </form>
+            </ul>
+</body>
+</html>
