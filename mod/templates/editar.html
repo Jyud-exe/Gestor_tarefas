@@ -10,7 +10,7 @@
             <h2>ATUALIZAR TAREFAS</h2>
         <HR></HR>
         <div style="text-align: end;"><a style="text-align: end;" href="{{ url_for('home') }}"><button>voltar</button></a></div>
-        <form action="/editar/{{ tarefa.id }}" method="POST">
+        <form action="" method="POST">
             <label for="titulo">Tarefa:</label>
             <input type="text" name="titulo" value="{{ tarefa.tarefa }}" required>
 

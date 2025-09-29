@@ -25,12 +25,13 @@ def delete(id):
         db.session.commit()
     return redirect(url_for('home'))
 
+
 @app.route('/editar/<int:id>', methods=['GET', 'POST'])
 def editar(id):
-    tarefa = Tarefas.query.get_or_404(id)
+    tarefa = Tarefas.query.get(id)
     if request.method == 'POST':
-        tarefa.titulo = request.form['titulo']
-        tarefa.horario = request.form['horario']
+        tarefa.tarefa = request.form['titulo']
+        tarefa.time = request.form['horario']
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('editar.html', tarefa=tarefa)
