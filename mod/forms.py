@@ -8,7 +8,7 @@ class TarefasForm(FlaskForm):
     data = DateField()
     time = StringField(validators=[DataRequired()], render_kw={"placeholder": "HH:MM"})
     tarefa = StringField('', validators=[DataRequired()])
-    btn = SubmitField('Add')
+    btn = SubmitField('Salvar')
 
     def save(self):
         nova_tarefa = Tarefas(
